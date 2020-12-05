@@ -30,12 +30,40 @@ namespace Promotions.Tests
         [Fact]
         public void ScenarioB()
         {
+            //ARRANGE
             var A = new Product() { Name = "A", Price = 50 };
             var B = new Product() { Name = "B", Price = 30 };
             var C = new Product() { Name = "C", Price = 20 };
             var D = new Product() { Name = "D", Price = 15 };
 
             var productBundles = new ProductBundles();
+
+            //scenario b data set
+            var cart = new Cart();
+            cart.Add(A);
+            cart.Add(A);
+            cart.Add(A);
+            cart.Add(A);
+            cart.Add(A);
+            cart.Add(B);
+            cart.Add(B);
+            cart.Add(B);
+            cart.Add(B);
+            cart.Add(B);
+            cart.Add(C);
+            
+            //Yes, we go definitly use Product instead of string, but let's KISS
+            var flattenedCart = new List<string>(cart.CartProducts.Select(p => p.Name).ToList());
+
+            //Returning result from the recursing method - could perhaps have yieled
+            var cartBundles = new List<string>();
+
+            var promotionCalculator = new PromotionCalculator();
+            
+            //ACT
+            //Find the applicabale bundles in the cart 
+            promotionCalculator.ApplicablePromotions(flattenedCart, productBundles.ActiveBundles, cartBundles);
+
 
 
         }
