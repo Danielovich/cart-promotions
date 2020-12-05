@@ -39,4 +39,23 @@ namespace Promotions
         }
 
     }
+
+    public class ProductBundles
+    {
+        public ProductBundles()
+        {
+            ActiveBundles = new Dictionary<string, double>();
+
+            Setup();
+        }
+
+        public Dictionary<string, double> ActiveBundles { get; }
+
+        private void Setup()
+        {
+            ActiveBundles.Add("AAA", 130);
+            ActiveBundles.Add("BB", 45);
+            ActiveBundles.Add("CD", 30);
+        }
+    }
 }

@@ -27,7 +27,18 @@ namespace Promotions.Tests
         }
 
         
+        [Fact]
+        public void ScenarioB()
+        {
+            var A = new Product() { Name = "A", Price = 50 };
+            var B = new Product() { Name = "B", Price = 30 };
+            var C = new Product() { Name = "C", Price = 20 };
+            var D = new Product() { Name = "D", Price = 15 };
 
+            var productBundles = new ProductBundles();
+
+
+        }
 
     }
 }
