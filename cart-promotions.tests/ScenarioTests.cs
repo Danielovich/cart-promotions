@@ -64,9 +64,17 @@ namespace Promotions.Tests
             //Find the applicabale bundles in the cart 
             promotionCalculator.ApplicablePromotions(flattenedCart, productBundles.ActiveBundles, cartBundles);
 
+            //Explicit Sum by remaing cart items
+            var sum = cart.Sum(flattenedCart);
 
+            //Plus prices for bundles
+            sum += cart.Sum(cartBundles, productBundles.ActiveBundles);
 
+            //ASSERT
+            Assert.True(sum == 370);
         }
+
+
 
     }
 }

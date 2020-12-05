@@ -37,10 +37,42 @@ namespace Promotions
         {
             CartProducts.Add(product);
         }
+
+        public double Sum(IEnumerable<string> productNames)
+        {
+            double sum = 0;
+
+            foreach (var product in productNames)
+            {
+                sum += Sum(product);
+            }
+
+            return sum;
+        }
+        public double Sum(IEnumerable<string> cartBundles, Dictionary<string, double> productBundles)
+        {
+            double sum = 0;
+            foreach (var item in cartBundles)
+            {
+                sum += productBundles[item];
+            }
+
+            return sum;
+        }
+        public double Sum(string name)
+        {
+            return CartProducts.Where(w => w.Name == name).Select(p => p.Price).FirstOrDefault();
+        }
     }
 
     public class PromotionCalculator
     {
+        //This would look different based on how the implementation of Products would be in the real world.
+        //But for the example the easiest is to look at the name of the Product and have a Dictionary where
+        //The names are concatenated into a bundle; AAA, BB, CD. 
+        //Then we can iterate over the bundles and count the number of Products (name string) in the cart
+        //to find out if we have enough in the cart to apply a given bundle.
+        //It was a fun excersise!
         public void ApplicablePromotions(List<string> cart, Dictionary<string, double> bundles, List<string> result)
         {
             var match = false;
