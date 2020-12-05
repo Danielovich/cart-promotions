@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Promotions", "cart-promotions\Promotions.csproj", "{8482F065-0A6E-40C2-81EB-9E56F1C543CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "cart-promotions.tests\XUnitTestProject1.csproj", "{8606EE36-1A3E-4DE6-B26C-B07F157F0A57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Promotions.Tests", "cart-promotions.tests\Promotions.Tests.csproj", "{8606EE36-1A3E-4DE6-B26C-B07F157F0A57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

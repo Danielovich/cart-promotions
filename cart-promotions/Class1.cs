@@ -21,9 +21,22 @@ namespace Promotions
 
     public class Cart
     {
+        public Cart()
+        {
+            CartProducts = new List<Product>();
+        }
+
+        public List<Product> CartProducts { get; set; }
+
         public double Sum(IEnumerable<Product> products)
         {
             return products.Sum(s => s.Price);
         }
+
+        public void Add(Product product)
+        {
+            CartProducts.Add(product);
+        }
+
     }
 }
